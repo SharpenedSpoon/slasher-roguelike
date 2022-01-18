@@ -12,5 +12,14 @@ module.exports = {
 				options.keep_classnames = true;
 				return options
 			})
+	},
+
+	configureWebpack: {
+		resolve: {
+			alias: {
+				"@": path.resolve(__dirname, vueSrc)
+			},
+			extensions: ['.js', '.vue', '.json']
+		}
 	}
 }

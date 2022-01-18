@@ -3,6 +3,9 @@ class Thing {
 	/** @var {string} #type */
 	#type;
 
+	constructor() {
+	}
+
 	init() {
 		this.#type = this.#type || 'thing';
 	}
