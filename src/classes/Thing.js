@@ -9,7 +9,9 @@ export default class Thing {
 		this.init();
 	}
 
-	init() {}
+	init() {
+		this.#type = this.#type || 'thing';
+	}
 
 	get type() {
 		return this._type;
