@@ -2,15 +2,15 @@
 import { ref } from 'vue';
 
 export default class Motivation {
-	#actionsQueue;
+	_actionsQueue = '';
 
 	constructor() {
-		this.#actionsQueue = ref([]);
+		this._actionsQueue = ref([]);
 	}
 
 
 	get isActive() {
-		return this.#actionsQueue.value.length > 0;
+		return this._actionsQueue.value.length > 0;
 	}
 
 	doSomething(dt = 1) {
@@ -43,7 +43,7 @@ export default class Motivation {
 	_getAction(viewOnly = true) {
 		if (this.isActive) {
 			if (viewOnly) {
-				return this.#actionsQueue.value[0];
+				return this._actionsQueue.value[0];
 			} else {
 				return this.#shiftAction();
 			}
@@ -68,8 +68,8 @@ export default class Motivation {
 	 * @private
 	 */
 	#shiftAction() {
-		if (this.#actionsQueue.value.length > 0) {
-			return this.#actionsQueue.value.shift();
+		if (this._actionsQueue.value.length > 0) {
+			return this._actionsQueue.value.shift();
 		}
 
 		return null;
@@ -81,8 +81,8 @@ export default class Motivation {
 	 * @private
 	 */
 	#popAction() {
-		if (this.#actionsQueue.value.length > 0) {
-			return this.#actionsQueue.value.pop();
+		if (this._actionsQueue.value.length > 0) {
+			return this._actionsQueue.value.pop();
 		}
 
 		return null;
@@ -95,8 +95,8 @@ export default class Motivation {
 	 * @private
 	 */
 	#unshiftAction() {
-		if (this.#actionsQueue.value.length > 0) {
-			return this.#actionsQueue.value.unshift();
+		if (this._actionsQueue.value.length > 0) {
+			return this._actionsQueue.value.unshift();
 		}
 
 		return null;
@@ -109,6 +109,6 @@ export default class Motivation {
 	 * @private
 	 */
 	#pushAction(action) {
-		return this.#actionsQueue.value.push(action);
+		return this._actionsQueue.value.push(action);
 	}
 }

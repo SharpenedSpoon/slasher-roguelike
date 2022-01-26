@@ -1,10 +1,8 @@
 import Thing from "@/classes/Thing";
-import MotivationFactory from "./factories/MotivationFactory";
 
 import Motivation from '@/classes/Motivation';
 import Action from '@/classes/Action';
 import Need from '@/classes/Need';
-import Thing from '@/classes/Thing';
 
 export default class Character extends Thing {
 

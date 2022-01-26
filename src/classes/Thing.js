@@ -1,7 +1,7 @@
 
 export default class Thing {
 	/** @var {string} #type */
-	_type = 'thing'; // Override this in subclasses.
+	_type; // Override this in subclasses.
 
 	_canBeHeld = false; // Override this in subclasses.
 
@@ -10,7 +10,7 @@ export default class Thing {
 	}
 
 	init() {
-		this.#type = this.#type || 'thing';
+		this._type = this._type || 'thing';
 	}
 
 	get type() {
