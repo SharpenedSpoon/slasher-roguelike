@@ -1,10 +1,18 @@
 
-class Thing {
+export default class Thing {
 	/** @var {string} #type */
-	#type;
+	_type = 'thing'; // Override this in subclasses.
 
-	init() {
-		this.#type = this.#type || 'thing';
+	_canBeHeld = false; // Override this in subclasses.
+
+	constructor() {
+		this.init();
+	}
+
+	init() {}
+
+	get type() {
+		return this._type;
 	}
 
 	/**
@@ -20,4 +28,12 @@ class Thing {
 	 * @param {Action} action
 	 */
 	beInteractedWith(originator, action) {}
+
+	
+	/**
+	 * @returns {ActionResult|null}
+	 */
+	doSomething() {
+		return null;
+	}
 }
