@@ -1,16 +1,17 @@
 
 export default class Thing {
 	/** @var {string} #type */
-	_type; // Override this in subclasses.
+	// _type; // Override this in subclasses.
 
-	_canBeHeld = false; // Override this in subclasses.
+	// _canBeHeld = false; // Override this in subclasses.
 
 	constructor() {
 		this.init();
 	}
 
 	init() {
-		this._type = this._type || 'thing';
+		this._type = this._type || 'thing'; // Override this in subclasses.
+		this._canBeHeld = this._canBeHeld || false; // // Override this in subclasses.
 	}
 
 	get type() {

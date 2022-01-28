@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 
 export default class Motivation {
-	_actionsQueue = '';
+	//_actionsQueue = '';
 
 	constructor() {
 		this._actionsQueue = ref([]);
@@ -30,7 +30,7 @@ export default class Motivation {
 	 * @private
 	 */
 	_addAction(action) {
-		return this.#pushAction(action);
+		return this._pushAction(action);
 	}
 
 
@@ -45,7 +45,7 @@ export default class Motivation {
 			if (viewOnly) {
 				return this._actionsQueue.value[0];
 			} else {
-				return this.#shiftAction();
+				return this._shiftAction();
 			}
 		} else {
 			return null;
@@ -67,7 +67,7 @@ export default class Motivation {
 	 * @returns {Action|null}
 	 * @private
 	 */
-	#shiftAction() {
+	_shiftAction() {
 		if (this._actionsQueue.value.length > 0) {
 			return this._actionsQueue.value.shift();
 		}
@@ -80,7 +80,7 @@ export default class Motivation {
 	 * @returns {Action|null}
 	 * @private
 	 */
-	#popAction() {
+	_popAction() {
 		if (this._actionsQueue.value.length > 0) {
 			return this._actionsQueue.value.pop();
 		}
@@ -94,7 +94,7 @@ export default class Motivation {
 	 * @returns {int}
 	 * @private
 	 */
-	#unshiftAction() {
+	_unshiftAction() {
 		if (this._actionsQueue.value.length > 0) {
 			return this._actionsQueue.value.unshift();
 		}
@@ -108,7 +108,7 @@ export default class Motivation {
 	 * @returns {int}
 	 * @private
 	 */
-	#pushAction(action) {
+	_pushAction(action) {
 		return this._actionsQueue.value.push(action);
 	}
 }

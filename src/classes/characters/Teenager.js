@@ -1,5 +1,11 @@
 
 import Character from '@/classes/Character';
+import Bladder from '@/classes/needs/Bladder';
+import Energy from '@/classes/needs/Energy';
+import Fun from '@/classes/needs/Fun';
+import Hunger from '@/classes/needs/Hunger';
+import Hygenie from '@/classes/needs/Hygenie';
+import Social from '@/classes/needs/Social';
 
 export default class Teenager extends Character {
 	init() {

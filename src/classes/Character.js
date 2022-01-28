@@ -7,10 +7,12 @@ import Need from '@/classes/Need';
 export default class Character extends Thing {
 
 	constructor() {
+		super();
 		this.needs = [];
+		console.log(this);
+		debugger;
 
 		this.currentMotivation = null;
-		super();
 	}
 
 	get currentAction() {
