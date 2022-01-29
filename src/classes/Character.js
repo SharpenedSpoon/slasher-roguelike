@@ -12,7 +12,7 @@ export default class Character extends Thing {
 
 	constructor({name = 'Unnamed'} = {name: 'Unnamed'}) {
 		super();
-		
+
 		this.name = name;
 	}
 
@@ -31,14 +31,35 @@ export default class Character extends Thing {
 	}
 
 
-	doSomething(dt = 1) {
+	/**
+	 * This is the main loop for each character. Perhaps it should be called `loop()`. 
+	 * 
+	 * 
+	 * @param {int} dt 
+	 * @returns 
+	 */
+	loop(dt = 1) {
 		this.updateNeeds(1);
+		const nextAction = this.figureOutNextAction(dt);
+	}
+
+
+	/**
+	 * TODO
+	 * 
+	 * Figures out the next action. Returns exactly one action to be performed.
+	 * 
+	 * @param {number} dt
+	 */
+	figureOutNextAction(dt) {
+		// TODO
+		return new Action();
 		if (this.currentMotivation) {
-			const result = this.currentMotivation.doSomething(dt);
+			const result = this.currentMotivation.figureOutNextAction(dt); // todo 2022-01-30: refactor prbly?
 			return result;
 		} else {
 			this.currentMotivation = this.determineMotivation();
-			const result = this.currentMotivation.doSomething(dt);
+			const result = this.currentMotivation.figureOutNextAction(dt); // todo 2022-01-30: refactor prbly?
 			return result;
 		}
 	}
