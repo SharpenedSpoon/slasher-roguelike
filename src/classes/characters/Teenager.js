@@ -8,6 +8,9 @@ import Hygenie from '@/classes/needs/Hygenie';
 import Social from '@/classes/needs/Social';
 
 export default class Teenager extends Character {
+
+	name = 'UnnamedTeen';
+
 	init() {
 		super.init();
 		this.addNeed(new Bladder());

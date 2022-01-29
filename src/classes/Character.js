@@ -3,16 +3,17 @@ import Thing from "@/classes/Thing";
 import Motivation from '@/classes/Motivation';
 import Action from '@/classes/Action';
 import Need from '@/classes/Need';
+import { ref } from "vue";
 
 export default class Character extends Thing {
 
-	constructor() {
-		super();
-		this.needs = [];
-		console.log(this);
-		debugger;
+	name = 'Unnamed';
+	currentMotivation = null;
 
-		this.currentMotivation = null;
+	constructor({name = 'Unnamed'} = {name: 'Unnamed'}) {
+		super();
+		
+		this.name = name;
 	}
 
 	get currentAction() {
@@ -25,7 +26,8 @@ export default class Character extends Thing {
 
 
 	addNeed(need) {
-		this.needs.push(need);
+		this.needs = this.needs || ref([]);
+		this.needs.value.push(need);
 	}
 
 
